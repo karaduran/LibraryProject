@@ -10,7 +10,9 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/Library_Tests/step_definitions",
         dryRun = false,
-        tags = "@search_book",
+        //tags = "@search_book",
+        //tags="@login_scenario_outline",
+        tags="@parametrized_search_book",
         //tags = "@login_librarian",
         publish = true
 )

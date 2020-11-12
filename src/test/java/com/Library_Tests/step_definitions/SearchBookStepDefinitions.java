@@ -21,9 +21,13 @@ public class SearchBookStepDefinitions {
 
     @Then("user searches the book by giving the author name")
     public void userSearchesTheBookByGivingTheAuthorName() {
-        bookPage.sendTextSearchBox("Ahmet","George Orwell");
+        bookPage.sendTextSearchBox("George Orwell");
         BrowserUtils.wait(2);
     }
 
 
+    @Then("user searches the book by giving the {string}")
+    public void userSearchesTheBookByGivingThe(String arg0) {
+        bookPage.sendTextSearchBox(arg0);
+    }
 }

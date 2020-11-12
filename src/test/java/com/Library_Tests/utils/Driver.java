@@ -4,6 +4,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.URL;
 
 public class Driver {
 
@@ -24,6 +28,18 @@ public class Driver {
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
                     break;
+                case "remote-chrome":
+                    try {
+                        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                        desiredCapabilities.setBrowserName("chrome");
+                        URL gridUrl = new URL("http://54.87.224.55:4444/wd/hub");
+                        driver = new RemoteWebDriver(gridUrl,desiredCapabilities);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                    break;
+
+
                 default:
                     throw new RuntimeException("No such a browser yet!");
             }
