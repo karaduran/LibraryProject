@@ -7,6 +7,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+        plugin = {
+                "rerun:target/rerun.txt"
+        },
         features = "src/test/resources/features",
         glue = "com/Library_Tests/step_definitions",
         dryRun = false,
